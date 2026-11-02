@@ -1,7 +1,6 @@
 /**
  * CENTRAL WEDDING CONFIGURATION
  * Every editable detail of the invitation lives here.
- * Replace the placeholder values below with the real wedding details.
  */
 
 export type WeddingEvent = {
@@ -15,80 +14,75 @@ export type WeddingEvent = {
 
 export const wedding = {
   bride: {
-    firstName: "Zoya",
-    fullName: "Zoya Rahman",
-    parents: "Daughter of Mr. Faisal Rahman & Mrs. Sameera Faisal",
+    firstName: "Thejaswini",
+    fullName: "K.P. Thejaswini",
+    parents: "Daughter of Smt. N. Saralamma & Sri N. Parandaman",
   },
 
   groom: {
-    firstName: "Rayyan",
-    fullName: "Rayyan Farooq",
-    parents: "Son of Mr. Farooq Ahmed & Mrs. Shabana Farooq",
+    firstName: "Tejesh",
+    fullName: "N. Tejesh (Rajesh)",
+    parents: "Son of Smt. N. Bhushanamma & Sri N. Venkatesh",
   },
 
-  initials: "Z & R",
+  initials: "T & T",
 
   /** Human readable date + time */
-  date: "Sunday, 21 March 2027",
+  date: "Sunday, 15 November 2026",
 
   dayName: "Sunday",
-  dayNumber: "21",
-  monthName: "March",
-  year: "2027",
+  dayNumber: "15",
+  monthName: "November",
+  year: "2026",
 
-  time: "11:00 AM onwards",
+  time: "5:30 AM – 6:30 AM",
 
-  /** Used by countdown + calendar */
-  dateISO: "2027-03-21T11:00:00",
-  endISO: "2027-03-21T16:00:00",
+  /** Used by countdown + calendar (IST) */
+  dateISO: "2026-11-15T05:30:00+05:30",
+  endISO: "2026-11-15T06:30:00+05:30",
 
   welcomeLine: "Together with our families",
 
-  welcomeTitle: "Nikkah Ceremony",
+  welcomeTitle: "Wedding Ceremony",
 
   welcomeJoin: "of",
 
+  /** Extra details from the card */
+  familyName: "Neerugatti Vari",
+  blessings: ["Sri Rasthu", "Subhamasthu", "Kalyanamasthu"],
+  blessingLine: "Kanipakam Varasiddi Vinayakaswamy Prassanam",
+  lagnam: "Thula Lagnam",
+  hosts: {
+    names: "Smt. N. Bhushanamma & Sri N. Venkatesh",
+    address: "Danduvaripalli, Bangarupalyam (M), Chittoor Dist.",
+  },
+  brideFamilyAddress: "Patrapalli, Thavanampalli (M), Chittoor Dist.",
+  qualifications: "B.Tech.",
+  contacts: ["8008321107", "9959052677"],
+
   venue: {
-    name: "The Grand Orchid Convention Centre",
-    address: "Kakkanad, Kochi, Kerala 682030",
-    mapsQuery: "The Grand Orchid Convention Centre, Kakkanad, Kochi",
+    name: "SLV Kalyana Mandapam",
+    address: "Aragonda Road, Bangaraupalyam, Chittoor",
+    mapsQuery: "SLV Kalyana Mandapam, Aragonda Road, Bangarupalyam, Chittoor",
   },
 
   events: [
     {
-      id: "mehndi",
-      title: "Mehndi Evening",
-      date: "Friday, 19 March 2027",
-      time: "6:00 PM",
-      venue: "Rahman Residence, Kochi",
-      icon: "lantern",
-    },
-
-    {
-      id: "nikah",
-      title: "Nikkah Ceremony",
-      date: "Sunday, 21 March 2027",
-      time: "11:00 AM",
-      venue: "The Grand Orchid Convention Centre",
-      icon: "crescent",
-    },
-
-    {
       id: "reception",
-      title: "Wedding Reception",
-      date: "Sunday, 21 March 2027",
-      time: "12:30 PM",
-      venue: "The Grand Orchid Convention Centre",
-      icon: "rings",
+      title: "Reception & Dinner",
+      date: "Saturday, 14 November 2026",
+      time: "7:00 PM onwards",
+      venue: "SLV Kalyana Mandapam",
+      icon: "dinner",
     },
 
     {
-      id: "dinner",
-      title: "Walima Dinner",
-      date: "Monday, 22 March 2027",
-      time: "7:00 PM",
-      venue: "Royal Garden Banquet Hall, Kochi",
-      icon: "dinner",
+      id: "muhurtham",
+      title: "Muhurtham",
+      date: "Sunday, 15 November 2026",
+      time: "5:30 AM – 6:30 AM (Thula Lagnam)",
+      venue: "SLV Kalyana Mandapam",
+      icon: "rings",
     },
   ] satisfies WeddingEvent[],
 
@@ -97,47 +91,25 @@ export const wedding = {
       "We invite you to celebrate with us in elegant traditional attire inspired by warm, romantic and earthy tones.",
 
     colors: [
-      {
-        name: "Ivory",
-        hex: "#F8F3E9",
-      },
-      {
-        name: "Champagne",
-        hex: "#D9C19C",
-      },
-      {
-        name: "Dusty Rose",
-        hex: "#CFA6A3",
-      },
-      {
-        name: "Burgundy",
-        hex: "#6B2637",
-      },
-      {
-        name: "Mauve",
-        hex: "#A8808A",
-      },
-      {
-        name: "Sage",
-        hex: "#A8B09A",
-      },
-      {
-        name: "Warm Brown",
-        hex: "#7A5A48",
-      },
+      { name: "Ivory", hex: "#F8F3E9" },
+      { name: "Champagne", hex: "#D9C19C" },
+      { name: "Dusty Rose", hex: "#CFA6A3" },
+      { name: "Burgundy", hex: "#6B2637" },
+      { name: "Mauve", hex: "#A8808A" },
+      { name: "Sage", hex: "#A8B09A" },
+      { name: "Warm Brown", hex: "#7A5A48" },
     ],
   },
 
   invitationMessage:
-    "With immense joy and gratitude, together with our families, we warmly invite you to witness the beginning of our forever and share in the blessings, laughter and beautiful memories of our special day.",
+    "We solicit your gracious presence with family and friends on the auspicious occasion of the marriage of our only son.",
 
-  quote:
-    "“And He placed between you affection and mercy.” — Quran 30:21",
+  quote: "Sri Rasthu · Subhamasthu · Kalyanamasthu",
 
   guestInformation: [
     {
       title: "Arrival",
-      body: "We kindly request our guests to arrive at least 20 minutes before the Nikkah ceremony begins.",
+      body: "The Muhurtham is between 5:30 and 6:30 AM. We kindly request our guests to arrive in good time before the ceremony begins.",
     },
 
     {
@@ -152,27 +124,26 @@ export const wedding = {
 
     {
       title: "Parking",
-      body: "Complimentary guest parking will be available at the venue. Venue staff will be present to assist you on arrival.",
+      body: "Guest parking will be available at the venue. Venue staff will be present to assist you on arrival.",
     },
 
     {
       title: "Photography",
-      body: "We would love for you to enjoy the ceremony with us. Kindly avoid flash photography during the Nikkah.",
+      body: "We would love for you to enjoy the ceremony with us. Kindly avoid flash photography during the Muhurtham.",
     },
 
     {
       title: "Gifts",
-      body: "Your presence, prayers and blessings are the greatest gifts we could ask for.",
+      body: "Your presence and blessings are the greatest gifts we could ask for.",
     },
   ],
 
   /** Optional background music */
-  musicSrc: "",
+  musicSrc: "/A thousend years.mp4",
 
   footer: {
-    signOff: "With Love & Duas,",
-    thanks:
-      "We look forward to celebrating this beautiful beginning with you.",
+    signOff: "With best compliments from,",
+    thanks: "Friends & Relatives",
   },
 } as const;
 

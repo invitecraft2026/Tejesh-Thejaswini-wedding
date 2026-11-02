@@ -2,6 +2,12 @@ import { motion } from "framer-motion";
 
 import { wedding } from "@/config/wedding";
 
+/** Strong, soft shadow so text stays readable on any background */
+const textShadow = {
+  textShadow:
+    "0 1px 3px rgba(0,0,0,0.85), 0 2px 12px rgba(0,0,0,0.7), 0 0 28px rgba(0,0,0,0.55)",
+};
+
 export function HeroSection({ start }: { start: boolean }) {
   return (
     <section
@@ -20,7 +26,7 @@ export function HeroSection({ start }: { start: boolean }) {
           flex-col
           items-center
           justify-between
-          px-6
+          px-5
           py-14
           text-center
         "
@@ -39,32 +45,72 @@ export function HeroSection({ start }: { start: boolean }) {
             delay: 0.35,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="mx-auto max-w-sm"
+          className="relative isolate mx-auto max-w-md px-4 py-6"
         >
-          <p className="tracking-luxe wedding-light text-[0.62rem] font-light uppercase sm:text-xs">
-  {wedding.welcomeLine}
-</p>
+          {/* Soft dark glow behind the text for contrast */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -inset-x-6 -inset-y-4 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(22,8,14,0.6)_0%,rgba(22,8,14,0.38)_50%,transparent_75%)]"
+          />
 
-          <h1 className="font-script mt-3 text-[2.75rem] leading-[1.05] wedding-title sm:text-[3.5rem]">
-  {wedding.welcomeTitle}
-</h1>
+          <p
+            style={textShadow}
+            className="tracking-luxe text-xs font-medium uppercase text-[#fff4ea] sm:text-sm"
+          >
+            {wedding.welcomeLine}
+          </p>
 
-          <p className="mt-2 text-xs italic tracking-wide text-cream/90 drop-shadow-[0_1px_5px_rgba(0,0,0,0.45)]">
+          <h1
+            style={textShadow}
+            className="font-script mt-3 text-5xl leading-[1.05] text-[#f3dfb4] sm:text-6xl"
+          >
+            {wedding.welcomeTitle}
+          </h1>
+
+          <p
+            style={textShadow}
+            className="mt-2 text-sm italic tracking-wide text-[#fff4ea]"
+          >
             {wedding.welcomeJoin}
           </p>
 
-          <div className="mt-3 flex flex-col items-center">
-            <h2 className="font-script text-5xl leading-none wedding-light sm:text-6xl">
-  {wedding.bride.firstName}
-</h2>
+          <div className="mt-4 flex flex-col items-center">
+            {/* Groom */}
+            <h2
+              style={textShadow}
+              className="font-script text-6xl leading-none text-[#fff4ea] sm:text-7xl"
+            >
+              {wedding.groom.firstName}
+            </h2>
 
-            <span className="font-script -my-1 text-xl text-champagne sm:text-2xl">
+            <p
+              style={textShadow}
+              className="mt-2 max-w-[20rem] text-sm font-medium leading-snug tracking-wide text-[#fff4ea] sm:text-base"
+            >
+              {wedding.groom.parents}
+            </p>
+
+            <span
+              style={textShadow}
+              className="font-script my-2 text-3xl text-[#f3dfb4] sm:text-4xl"
+            >
               &amp;
             </span>
 
-            <h2 className="font-script text-5xl leading-none wedding-light sm:text-6xl">
-  {wedding.groom.firstName}
-</h2>
+            {/* Bride */}
+            <h2
+              style={textShadow}
+              className="font-script text-6xl leading-none text-[#fff4ea] sm:text-7xl"
+            >
+              {wedding.bride.firstName}
+            </h2>
+
+            <p
+              style={textShadow}
+              className="mt-2 max-w-[20rem] text-sm font-medium leading-snug tracking-wide text-[#fff4ea] sm:text-base"
+            >
+              {wedding.bride.parents}
+            </p>
           </div>
         </motion.div>
 
@@ -81,16 +127,19 @@ export function HeroSection({ start }: { start: boolean }) {
           }}
           className="mx-auto max-w-sm"
         >
-          <p className="mt-10 wedding-light text-[0.6rem] tracking-[0.28em] uppercase">
-  Scroll to discover
-</p>
+          <p
+            style={textShadow}
+            className="mt-10 text-xs font-medium uppercase tracking-[0.28em] text-[#fff4ea]"
+          >
+            Scroll to discover
+          </p>
 
           <motion.svg
-            width="18"
-            height="18"
+            width="22"
+            height="22"
             viewBox="0 0 24 24"
             aria-hidden
-            className="mx-auto mt-2 text-champagne"
+            className="mx-auto mt-2 text-[#f3dfb4] drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
             animate={
               start
                 ? {
@@ -110,7 +159,7 @@ export function HeroSection({ start }: { start: boolean }) {
               d="M6 9l6 6 6-6"
               fill="none"
               stroke="currentColor"
-              strokeWidth="1.1"
+              strokeWidth="1.6"
             />
           </motion.svg>
         </motion.div>

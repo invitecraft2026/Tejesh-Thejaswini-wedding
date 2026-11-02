@@ -4,6 +4,12 @@ import { wedding } from "@/config/wedding";
 import { Reveal } from "./Reveal";
 import { CornerFrame, SectionHeading } from "./Ornament";
 
+/** Strong, soft shadow so text stays readable on any background */
+const textShadow = {
+  textShadow:
+    "0 1px 3px rgba(0,0,0,0.85), 0 2px 12px rgba(0,0,0,0.7), 0 0 28px rgba(0,0,0,0.55)",
+};
+
 function getTimeLeft(targetDate: string) {
   const target = new Date(targetDate).getTime();
 
@@ -30,21 +36,13 @@ function getTimeLeft(targetDate: string) {
     };
   }
 
-  const days = Math.floor(
-    difference / (1000 * 60 * 60 * 24)
-  );
+  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
 
-  const hours = Math.floor(
-    (difference / (1000 * 60 * 60)) % 24
-  );
+  const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
 
-  const minutes = Math.floor(
-    (difference / (1000 * 60)) % 60
-  );
+  const minutes = Math.floor((difference / (1000 * 60)) % 60);
 
-  const seconds = Math.floor(
-    (difference / 1000) % 60
-  );
+  const seconds = Math.floor((difference / 1000) % 60);
 
   return {
     days: String(days).padStart(2, "0"),
@@ -52,6 +50,26 @@ function getTimeLeft(targetDate: string) {
     minutes: String(minutes).padStart(2, "0"),
     seconds: String(seconds).padStart(2, "0"),
   };
+}
+
+function TimeUnit({ value, label }: { value: string; label: string }) {
+  return (
+    <div>
+      <p
+        style={textShadow}
+        className="text-4xl font-medium tabular-nums tracking-wide text-[#f3dfb4] sm:text-5xl"
+      >
+        {value}
+      </p>
+
+      <p
+        style={textShadow}
+        className="mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[#fff4ea] sm:text-xs"
+      >
+        {label}
+      </p>
+    </div>
+  );
 }
 
 export function SaveTheDate() {
@@ -69,7 +87,7 @@ export function SaveTheDate() {
 
   return (
     <section
-      className="relative overflow-hidden bg-transparent px-6 py-20"
+      className="relative overflow-hidden bg-transparent px-5 py-20"
       style={{
         background: "transparent",
         backgroundColor: "transparent",
@@ -83,61 +101,28 @@ export function SaveTheDate() {
         <CornerFrame />
 
         <Reveal>
-          <SectionHeading
-            title="The Celebration Begins"
-            script
-          />
+          <SectionHeading title="The Celebration Begins" script />
         </Reveal>
 
         <Reveal delay={0.1}>
           <div className="mt-10">
-            <div className="mt-8 grid grid-cols-4 gap-4">
-              <div>
-               <p className="wedding-title text-3xl font-light tracking-wide sm:text-4xl">
-  {timeLeft.days}
-</p>
-
-                <p className="wedding-muted mt-2 text-xs uppercase tracking-[0.25em]">
-  Days
-</p>
-              </div>
-
-              <div>
-                <p className="text-3xl font-light tracking-wide text-champagne drop-shadow-[0_1px_4px_rgba(0,0,0,0.45)] sm:text-4xl">
-                  {timeLeft.hours}
-                </p>
-
-                <p className="mt-2 text-xs uppercase tracking-[0.25em] text-[#fff4ea]/80 drop-shadow-[0_1px_3px_rgba(0,0,0,0.45)]">
-                  Hours
-                </p>
-              </div>
-
-              <div>
-                <p className="text-3xl font-light tracking-wide text-champagne drop-shadow-[0_1px_4px_rgba(0,0,0,0.45)] sm:text-4xl">
-                  {timeLeft.minutes}
-                </p>
-
-                <p className="mt-2 text-xs uppercase tracking-[0.25em] text-[#fff4ea]/80 drop-shadow-[0_1px_3px_rgba(0,0,0,0.45)]">
-                  Minutes
-                </p>
-              </div>
-
-              <div>
-                <p className="text-3xl font-light tracking-wide text-champagne drop-shadow-[0_1px_4px_rgba(0,0,0,0.45)] sm:text-4xl">
-                  {timeLeft.seconds}
-                </p>
-
-                <p className="mt-2 text-xs uppercase tracking-[0.25em] text-[#fff4ea]/80 drop-shadow-[0_1px_3px_rgba(0,0,0,0.45)]">
-                  Seconds
-                </p>
-              </div>
+            <div className="mt-8 grid grid-cols-4 gap-2 sm:gap-4">
+              <TimeUnit value={timeLeft.days} label="Days" />
+              <TimeUnit value={timeLeft.hours} label="Hours" />
+              <TimeUnit value={timeLeft.minutes} label="Minutes" />
+              <TimeUnit value={timeLeft.seconds} label="Seconds" />
             </div>
           </div>
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="mt-8 text-center text-sm italic text-[#fff4ea]/85 drop-shadow-[0_1px_4px_rgba(0,0,0,0.45)]">
-            {wedding.time}
+          <p
+            style={textShadow}
+            className="mt-8 text-center text-base font-medium leading-relaxed text-[#fff4ea] sm:text-lg"
+          >
+            {wedding.date}
+            <br />
+            {wedding.time} · {wedding.lagnam}
           </p>
         </Reveal>
       </div>

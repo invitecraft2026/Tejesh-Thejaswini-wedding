@@ -119,9 +119,9 @@ function Index() {
 
           <VenueSection />
 
-          <DressCode />
+          {/* <DressCode /> */}
 
-          <GuestInfo />
+          {/* <GuestInfo /> */}
 
           <Footer />
         </div>
